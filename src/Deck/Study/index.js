@@ -99,9 +99,8 @@ function Study() {
         </p>
         <Link
           to={`/decks/${deck.id}/cards/new`}
-          className="btn btn-primary mx-1"
-        >
-          Add Cards
+          >
+          <button>Add Cards</button>
         </Link>
       </div>
     );
