@@ -26,6 +26,7 @@ import { useParams, Link } from "react-router-dom"
 import { readDeck } from "../../utils/api"
 import CreateCardNavBar from "./CreateCardNavBar"
 import { createCard } from "../../utils/api"
+import CardForm from "../Form"
 
 
 
@@ -89,25 +90,7 @@ function AddCard() {
             <br />
             <h3>{deck.name}: Add Card</h3>
             <br />
-            <form>
-                <label for="front">Front</label>
-                <br />
-                <textarea
-                    type="text"
-                    name="front"
-                    value={formData.front}
-                    onChange={handleChange}
-                />
-                <br />
-                <label for="back">Back</label>
-                <br />
-                <textarea
-                    type="text"
-                    name="back"
-                    value={formData.back}
-                    onChange={handleChange}
-                />
-            </form>
+            <CardForm handleChange={handleChange} formData={formData} />
             <br />
             <button onClick={handleSubmit}>Save</button>
             <Link to={`/decks/${deckId}`}>

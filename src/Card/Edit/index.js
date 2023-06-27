@@ -22,6 +22,7 @@ import React, { useEffect, useState } from "react"
 import EditCardNavBar from "./EditCardNavBar";
 import { useParams, Link, useHistory } from "react-router-dom"
 import { readCard, readDeck, updateCard } from "../../utils/api";
+import CardForm from "../Form";
 
 function EditCard() {
     const { deckId } = useParams()
@@ -87,30 +88,12 @@ function EditCard() {
             <br />
             <h3>Edit Card</h3>
             <br />
-            <form>
-                <label for="front">Front</label>
-                <br />
-                <textarea
-                    type="text"
-                    name="front"
-                    value={formData.front}
-                    onChange={handleChange}
-                />
-                <br />
-                <label for="back">Back</label>
-                <br />
-                <textarea
-                    type="text"
-                    name="back"
-                    value={formData.back}
-                    onChange={handleChange}
-                />
-                <br />
-                <Link to={`/decks/${deckId}`}>
-                    <button>Cancel</button>
-                </Link>
-                <button onClick={handleSubmit}>Save</button>
-            </form>
+            <CardForm handleChange={handleChange} formData={formData} />
+            <br />
+            <Link to={`/decks/${deckId}`}>
+                <button>Cancel</button>
+            </Link>
+            <button onClick={handleSubmit}>Save</button>
         </>
     )
 }

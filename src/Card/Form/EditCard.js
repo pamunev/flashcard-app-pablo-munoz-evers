@@ -1,3 +1,0 @@
-/*
-Edit Card form.
-*/
