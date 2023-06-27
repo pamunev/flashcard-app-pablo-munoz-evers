@@ -13,11 +13,11 @@ The following is redered from the "/Deck/List" folder:
 function Home() {
     return (
     <>
-    {/*<Link to="/decks/new" className="btn-link-text">
+    <Link to="/decks/new" className="btn-link-text">
         <button>Create Deck</button>
     </Link>
     <br />
-    <br />*/}
+    <br />
     <DeckList />
     {/*I need cards to display the decks here. Each one needs the deck
     name, number of cards, and a STUDY, VIEW, and DELETE button.

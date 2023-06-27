@@ -14,25 +14,20 @@ import React, { useState } from "react"
 import { readDeck, readCard, deleteCard } from "../../utils/api"
 import { Link } from "react-router-dom"
 
-function CardList({ deck, cardPull }) {
+function CardList({ deck, handleDeleteCard }) {
     //const [card, setCard] = useState([])
     //const allCards = deck.cards
+    //const [deck, setDeck] = useState(deck)
 
 // Not sure how to get the Edit button to be in the next line, under the content. 
-    const handleDelete = async (card) => {
-        const confirmDelete = window.confirm(
-            "Delete this card?\n\nYou will not be able to recover it."
-        )
-        if (confirmDelete) {
-            await deleteCard(card.id)
-            // I need a function here that reloads the cards again, but there's no pre-made ListCards function like there is with ListDecks. 
-        }
+    const handleDelete = async (cardId) => {
+        handleDeleteCard(cardId)
     }
 
     return (
         <>
-        {cardPull ? (
-            cardPull.map((card) => {
+        {deck.cards ? (
+            deck.cards.map((card) => {
             return (
             <div className="card" key={card.id}>
                 <div className="card-body">
@@ -44,7 +39,7 @@ function CardList({ deck, cardPull }) {
                         <Link to={`/decks/${deck.id}/cards/${card.id}/edit`}>
                             <button>Edit</button>
                         </Link>
-                        <button onClick={handleDelete}>Delete</button>
+                        <button onClick={() => handleDelete(card.id)}>Delete</button>
                     </div>
                 </div>
 

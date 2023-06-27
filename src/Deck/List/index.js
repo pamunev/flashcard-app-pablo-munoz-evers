@@ -15,11 +15,12 @@ DeckList
 
 import React, { useState, useEffect } from "react";
 import { listDecks, deleteDeck, loadDecks } from "../../utils/api";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function DeckList() {
     const [allDecks, setAllDecks] = useState([])
     //const [numCards, setNumCards] = useState(0)
+    const history = useHistory()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,12 +32,13 @@ function DeckList() {
 
     const handleDelete = async (deck) => {
         const confirmDelete = window.confirm(
-            "Delete this deck? You will not be able to recover it."
+            "Delete this deck?\n\nYou will not be able to recover it."
         )
         
         if (confirmDelete) {
             await deleteDeck(deck.id)
-            loadDecks()
+            setAllDecks(allDecks.filter((d) => d.id !== deck.id))
+            history.push("/")
         }
     }
 
@@ -74,7 +76,7 @@ function DeckList() {
                     <Link to={`/decks/${deck.id}/study`} className="btn-link-text">
                         <button>Study</button>
                     </Link>
-                    <button onClick={handleDelete} className="float-right">Delete</button>
+                    <button onClick={() => handleDelete(deck)} className="float-right">Delete</button>
                 </div>
             </div>
             )

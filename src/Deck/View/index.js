@@ -25,7 +25,7 @@ I think the following should be rendered from the "../Card/List" folder:
 
 import React, { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
-import { readDeck } from "../../utils/api"
+import { readDeck, deleteCard } from "../../utils/api"
 import ViewNavBar from "./ViewNavBar"
 import CardList from "../../Card/List"
 
@@ -47,6 +47,19 @@ function Deck() {
         return <p>Loading...</p>
     }
 
+    const handleDeleteCard = async (cardId) => {
+        const confirmDelete = window.confirm(
+            "Delete this card?\n\nYou will not be able to recover it."
+        )
+        if (confirmDelete) {
+            await deleteCard(cardId)
+            // I need a function here that reloads the cards again, but there's no pre-made ListCards function like there is with ListDecks.
+            const updatedDeck = {...deck}
+            updatedDeck.cards = updatedDeck.cards.filter((c) => c.id !== cardId)
+            setDeck(updatedDeck) 
+        }
+    }
+
 
     return (
         <>
@@ -66,7 +79,7 @@ function Deck() {
             <br />
             <br />
             <h2>Cards</h2>
-            <CardList deck={deck} cardPull={cardPull}/>
+            <CardList deck={deck} handleDeleteCard={handleDeleteCard} />
         </>
     )
     //<p>Deck. This should render CardList, I think.</p>

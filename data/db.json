@@ -19,11 +19,6 @@
       "id": 4,
       "name": "Celebration",
       "description": "This is my celebration deck because I figured out how to edit a deck and save the changes to my database."
-    },
-    {
-      "id": 5,
-      "name": "Trying",
-      "description": "This out. Edited"
     }
   ],
   "cards": [
@@ -85,16 +80,28 @@
       "back": "jfia;sdfd"
     },
     {
-      "id": 12,
-      "deckId": 5,
-      "front": "Here's a card",
-      "back": "and the back. Edited"
-    },
-    {
       "front": "one more",
       "back": "card",
       "deckId": 4,
       "id": 13
+    },
+    {
+      "front": "dsaf",
+      "back": "asfd",
+      "deckId": 3,
+      "id": 16
+    },
+    {
+      "front": "asdfa",
+      "back": "asdfa",
+      "deckId": 3,
+      "id": 17
+    },
+    {
+      "front": "asfda",
+      "back": "fdsad",
+      "deckId": 3,
+      "id": 18
     }
   ]
 }
