@@ -29,7 +29,7 @@ import { createCard } from "../../utils/api"
 
 
 
-function CreateCard() {
+function AddCard() {
     const { deckId } = useParams()
     const [deck, setDeck] = useState(null)
     const [formData, setFormData] = useState({
@@ -118,4 +118,4 @@ function CreateCard() {
     )
 }
 
-export default CreateCard;
+export default AddCard;

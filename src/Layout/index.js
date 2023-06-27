@@ -7,7 +7,7 @@ import CreateDeck from "../Deck/Create";
 import Deck from "../Deck/View";
 import Study from "../Deck/Study";
 import EditDeck from "../Deck/Edit";
-import CreateCard from "../Card/Create";
+import AddCard from "../Card/Create";
 import EditCard from "../Card/Edit";
 
 
@@ -57,7 +57,7 @@ const { url, path } = useRouteMatch()
             <EditDeck />
           </Route>
           <Route exact path="/decks/:deckId/cards/new">
-            <CreateCard />
+            <AddCard />
           </Route>
           <Route exact path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />
