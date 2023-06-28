@@ -102,6 +102,12 @@
       "back": "fdsad",
       "deckId": 3,
       "id": 18
+    },
+    {
+      "front": "here's",
+      "back": "another card",
+      "deckId": 3,
+      "id": 19
     }
   ]
 }

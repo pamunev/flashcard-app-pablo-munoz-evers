@@ -7,7 +7,7 @@ import CreateDeck from "../Deck/Create";
 import Deck from "../Deck/View";
 import Study from "../Deck/Study";
 import EditDeck from "../Deck/Edit";
-import AddCard from "../Card/Create";
+import AddCard from "../Card/AddCard/AddCard.js";
 import EditCard from "../Card/Edit";
 
 

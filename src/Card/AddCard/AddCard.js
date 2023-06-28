@@ -24,7 +24,7 @@ BASICALLY:
 import React, { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { readDeck } from "../../utils/api"
-import CreateCardNavBar from "./CreateCardNavBar"
+import CreateCardNavBar from "./AddCardNavBar"
 import { createCard } from "../../utils/api"
 import CardForm from "../Form"
 
@@ -83,6 +83,19 @@ function AddCard() {
             back: ""
         })
     }
+
+    /*const handleSubmit = (event) => {
+        event.preventDefault();
+        const card = {
+          front,
+          back,
+        };
+        createCard(deckId, card)
+          .then(window.alert("New card added to the deck"))
+          .catch(console.log);
+        setFront("");
+        setBack("");
+      };*/
 
     return (
         <>
