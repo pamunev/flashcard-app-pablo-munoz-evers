@@ -12,7 +12,7 @@ import React from "react"
 function CardForm({ handleChange, formData }) {
     return (
         <form>
-                <label for="front">Front</label>
+                <label htmlFor="front">Front</label>
                 <br />
                 <textarea
                     type="text"
@@ -21,7 +21,7 @@ function CardForm({ handleChange, formData }) {
                     onChange={handleChange}
                 />
                 <br />
-                <label for="back">Back</label>
+                <label htmlFor="back">Back</label>
                 <br />
                 <textarea
                     type="text"

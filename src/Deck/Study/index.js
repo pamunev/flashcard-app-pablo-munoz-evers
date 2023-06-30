@@ -22,6 +22,7 @@ function Study() {
     fetchData();
   }, []);
 
+  // "Next" handler
   function nextCard(index, total) {
     console.log(index);
     if (index < total) {
@@ -41,6 +42,7 @@ function Study() {
     }
   }
 
+  // "Flip" handler
   function flipCard() {
     if (front) {
       isFront(false);
@@ -49,6 +51,7 @@ function Study() {
     }
   }
 
+  // Determine whether "Next" button should be shown.
   function showNextButton(cards, index) {
     if (front) {
       return null;
@@ -63,6 +66,7 @@ function Study() {
     }
   }
 
+  // Are there enough cards in the deck?
   function enoughCards() {
     return (
       <div className="card">
@@ -89,6 +93,7 @@ function Study() {
     );
   }
 
+  // If there are not enough cards in the deck:
   function notEnoughCards() {
     return (
       <div>

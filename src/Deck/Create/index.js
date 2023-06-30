@@ -56,7 +56,7 @@ function CreateDeck() {
             <CreateDeckNavBar />
             <h2>Create Deck</h2>
             <form>
-                <label for="name">Name:</label>
+                <label htmlFor="name">Name:</label>
                 <br />
                 <input
                     type="text"
@@ -65,7 +65,7 @@ function CreateDeck() {
                     onChange={handleChange}
                 />
                 <br />
-                <label for="description">Description:</label>
+                <label htmlFor="description">Description:</label>
                 <br />
                 <textarea
                     type="text"
