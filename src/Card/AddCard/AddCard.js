@@ -51,7 +51,7 @@ function AddCard() {
     }
 
 
-
+// Change handler
     const handleChange = (event) => {
         const { name, value } = event.target
         setFormData((prevData) => ({
@@ -59,6 +59,8 @@ function AddCard() {
             [name]: value
         }))
     }
+
+// Submit handler
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -101,7 +103,7 @@ function AddCard() {
         <>
             <CreateCardNavBar deck={deck} />
             <br />
-            <h3>{deck.name}: Add Card</h3>
+            <h3>{deck.name}: <span>Add Card</span></h3>
             <br />
             <CardForm handleChange={handleChange} formData={formData} />
             <br />
