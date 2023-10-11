@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { readDeck } from "../../utils/api";
-import StudyNavBar from "./StudyNavBar"
+import StudyNavBar from "./StudyNavBar";
 
 function Study() {
   const history = useHistory();
@@ -57,11 +57,7 @@ function Study() {
       return null;
     } else {
       return (
-        <button
-          onClick={() => nextCard(index + 1, cards.length)}
-        >
-          Next
-        </button>
+        <button onClick={() => nextCard(index + 1, cards.length)}>Next</button>
       );
     }
   }
@@ -81,9 +77,7 @@ function Study() {
                   {front ? card.front : card.back}
                 </div>
                 <br />
-                <button onClick={flipCard}>
-                  Flip
-                </button>
+                <button onClick={flipCard}>Flip</button>
                 {showNextButton(cards, index)}
               </div>
             );
@@ -102,9 +96,7 @@ function Study() {
           You need at least 3 cards to study. There are {cards.length} cards in
           this deck.
         </p>
-        <Link
-          to={`/decks/${deck.id}/cards/new`}
-          >
+        <Link to={`/decks/${deck.id}/cards/new`}>
           <button>Add Cards</button>
         </Link>
       </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import NotFound from "./NotFound";
-import { Route, Link, Switch, useRouteMatch } from "react-router-dom";
-import Home from "../Home"
+import { Route, Switch, useRouteMatch } from "react-router-dom";
+import Home from "../Home";
 import CreateDeck from "../Deck/Create";
 import Deck from "../Deck/View";
 import Study from "../Deck/Study";
@@ -10,36 +10,11 @@ import EditDeck from "../Deck/Edit";
 import AddCard from "../Card/AddCard/AddCard.js";
 import EditCard from "../Card/Edit";
 
-
-
-
-
-
 function Layout() {
-const { url, path } = useRouteMatch()
-
   return (
     <>
       <Header />
       <div className="container">
-        {/* TODO: Implement the screen starting here */}
-       
-          
-        
-        {/*<div className="card">
-          <div className="card-body">
-            {/*how do I show my existing decks? 
-            I was thinking of just creating a card that looks 
-            like the example, but I don't know how to add 
-            the number of cards that are in the deck. 
-            It feels like maybe I have to access the data 
-            in db.jason in the data folder? But I don't know how.  */}
-          {/*</div>
-        </div>
-        
-        ALL THE ROUTES SHOULD BE HERE, I think.
-        Maybe this is like a map of the whole site. */}
-        
         <Switch>
           <Route exact path="/">
             <Home />
@@ -65,7 +40,7 @@ const { url, path } = useRouteMatch()
           <Route>
             <NotFound />
           </Route>
-        </Switch> 
+        </Switch>
       </div>
     </>
   );
