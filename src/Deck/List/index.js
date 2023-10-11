@@ -30,6 +30,7 @@ function DeckList() {
         fetchData()
     }, [])
 
+    // Delete handler
     const handleDelete = async (deck) => {
         const confirmDelete = window.confirm(
             "Delete this deck?\n\nYou will not be able to recover it."

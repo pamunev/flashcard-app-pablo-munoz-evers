@@ -50,6 +50,7 @@ function EditDeck() {
         return <h3>Loading...</h3>
     }
 
+    // Change handler
     const handleChange = (event) => {
         const { name, value } = event.target
         setFormData((prevData) => ({
@@ -58,6 +59,7 @@ function EditDeck() {
         }))
     }
 
+    // Submit handler
     const handleSubmit = async (event) => {
         event.preventDefault()
         await updateDeck(formData)

@@ -20,6 +20,8 @@ function CardList({ deck, handleDeleteCard }) {
     //const [deck, setDeck] = useState(deck)
 
 // Not sure how to get the Edit button to be in the next line, under the content. 
+
+// Delete handler
     const handleDelete = async (cardId) => {
         handleDeleteCard(cardId)
     }
