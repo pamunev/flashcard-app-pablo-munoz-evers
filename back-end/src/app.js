@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require("morgan");
 const app = express();
 
 // Functions
@@ -9,5 +10,6 @@ const sayHello = (req, res, next) => {
 // Routes
 
 app.get("/", sayHello);
+app.use(morgan("dev"));
 
 module.exports = app;
