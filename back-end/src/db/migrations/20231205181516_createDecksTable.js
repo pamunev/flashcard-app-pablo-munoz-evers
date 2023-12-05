@@ -3,15 +3,10 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-  return knex.schema.createTable("cards", (table) => {
+  return knex.schema.createTable("decks", (table) => {
     table.increments("id").primary();
-    table.string("front");
-    table.string("back");
-    table
-      .foreign("deckId")
-      .references("id")
-      .inTable("decks")
-      .onDelete("cascade");
+    table.string("name");
+    table.string("description");
   });
 };
 
@@ -20,5 +15,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.dropTable("cards");
+  return knex.schema.dropTable("decks");
 };
