@@ -7,6 +7,7 @@ exports.up = function (knex) {
     table.increments("id").primary();
     table.string("front");
     table.string("back");
+    table.integer("deckId").unsigned().notNullable();
     table
       .foreign("deckId")
       .references("id")
