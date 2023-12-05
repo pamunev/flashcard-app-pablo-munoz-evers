@@ -15,7 +15,6 @@ const sayHello = (req, res, next) => {
 // Routes
 
 app.get("/", sayHello);
-app.use(morgan("dev"));
 
 app.use("/cards", cardsRouter);
 app.use("/decks", decksRouter);
