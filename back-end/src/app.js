@@ -4,6 +4,9 @@ const app = express();
 const cardsRouter = require("./cards/cards.router");
 const decksRouter = require("./decks/decks.router");
 
+// Middleware
+app.use(morgan("dev"));
+
 // Functions
 const sayHello = (req, res, next) => {
   res.send("Hello!");
