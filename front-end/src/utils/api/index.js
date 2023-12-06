@@ -44,6 +44,7 @@ function stripCards(deck) {
 
 async function fetchJson(url, options, onCancel) {
   try {
+    console.log("url", url);
     const response = await fetch(url, options);
 
     if (response.status < 200 || response.status > 399) {
