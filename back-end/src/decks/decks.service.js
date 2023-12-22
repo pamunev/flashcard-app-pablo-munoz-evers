@@ -1,4 +1,4 @@
-const knex = require("knex");
+const knex = require("../db/connection");
 
 function create(newDeck) {
   return knex("decks")
@@ -8,6 +8,8 @@ function create(newDeck) {
 }
 
 function list() {
+  console.log("knex:", knex("decks").select("*"));
+  //return { hello: "world" };
   return knex("decks").select("*");
 }
 
