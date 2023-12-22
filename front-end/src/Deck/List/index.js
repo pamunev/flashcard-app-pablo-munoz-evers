@@ -33,7 +33,7 @@ function DeckList() {
   }
 
   return (
-    <>
+    <div>
       {allDecks.map((deck) => {
         return (
           <div className="card">
@@ -59,7 +59,7 @@ function DeckList() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
