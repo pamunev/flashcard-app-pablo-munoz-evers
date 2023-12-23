@@ -8,4 +8,6 @@ router
   .post(controller.create)
   .all(methodNotAllowed);
 
+router.route("/:deckId").get(controller.read).all(methodNotAllowed);
+
 module.exports = router;

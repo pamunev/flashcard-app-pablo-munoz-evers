@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { listDecks, deleteDeck } from "../../utils/api";
 import { Link, useHistory } from "react-router-dom";
+console.log("react:", React);
 
 function DeckList() {
   const [allDecks, setAllDecks] = useState([]);
@@ -10,6 +11,7 @@ function DeckList() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await listDecks();
+      console.log("data:", data);
       setAllDecks(data);
     };
     fetchData();
@@ -31,6 +33,8 @@ function DeckList() {
   function loadDecks() {
     listDecks().then(setAllDecks);
   }
+
+  console.log("potato", allDecks);
 
   return (
     <div>

@@ -7,13 +7,20 @@ function create(newDeck) {
     .then((createdRecords) => createdRecords[0]);
 }
 
+function read(deckId) {
+  return knex("decks")
+    .select("*")
+    .where({ id: deckId })
+    .then((returnedData) => returnedData[0]);
+}
+
 function list() {
-  console.log("knex:", knex("decks").select("*"));
   //return { hello: "world" };
   return knex("decks").select("*");
 }
 
 module.exports = {
   create,
+  read,
   list,
 };
