@@ -1,14 +1,15 @@
 const decksService = require("./decks.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
+// CRUDL
+
 async function create(req, res, next) {
   const data = await decksService.create(req.body.data);
   res.status(201).json({ data });
 }
 
-async function read(req, res, next) {
-  const { id } = req.params;
-  const data = await decksService.read(id);
+function read(req, res, next) {
+  const data = res.locals.deck;
   res.status(201).json({ data });
 }
 
@@ -35,6 +36,6 @@ async function deckExists(req, res, next) {
 
 module.exports = {
   create: asyncErrorBoundary(create),
-  read: [asyncErrorBoundary(deckExists), asyncErrorBoundary(read)],
+  read: [asyncErrorBoundary(deckExists), read],
   list: asyncErrorBoundary(list),
 };
