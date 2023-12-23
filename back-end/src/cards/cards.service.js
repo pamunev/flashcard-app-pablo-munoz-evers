@@ -7,6 +7,11 @@ function create(card) {
     .then((newData) => newData[0]);
 }
 
+function list() {
+  return knex("cards").select("*");
+}
+
 module.export = {
   create,
+  list,
 };

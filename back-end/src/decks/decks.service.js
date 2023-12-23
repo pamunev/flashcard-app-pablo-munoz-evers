@@ -8,6 +8,7 @@ function create(newDeck) {
 }
 
 function read(deckId) {
+  console.log("deck id:", deckId);
   return knex("decks")
     .select("*")
     .where({ id: deckId })

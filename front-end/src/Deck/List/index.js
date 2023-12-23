@@ -10,7 +10,8 @@ function DeckList() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await listDecks();
+      const response = await listDecks();
+      const { data } = response;
       console.log("data:", data);
       setAllDecks(data);
     };
