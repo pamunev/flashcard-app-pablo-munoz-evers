@@ -11,8 +11,9 @@ function DeckList() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await listDecks();
+      console.log("API initial response:", response);
       const { data } = response;
-      console.log("data:", data);
+      console.log("data from API:", data);
       setAllDecks(data);
     };
     fetchData();
