@@ -10,4 +10,6 @@ router
 
 router.route("/:id").get(controller.read).all(methodNotAllowed);
 
+router.route("/:id/cards").get(controller.listCards).all(methodNotAllowed);
+
 module.exports = router;

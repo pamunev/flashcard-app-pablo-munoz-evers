@@ -20,8 +20,13 @@ function list() {
   return knex("decks").select("*");
 }
 
+function listCards(deck) {
+  return knex("cards").select("*").where({ deckId: deck.id });
+}
+
 module.exports = {
   create,
   read,
   list,
+  listCards,
 };

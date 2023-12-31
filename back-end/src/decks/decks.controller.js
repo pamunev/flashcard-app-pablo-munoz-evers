@@ -18,6 +18,12 @@ async function list(req, res, next) {
   res.status(201).json({ data });
 }
 
+async function listCards(req, res, next) {
+  const deck = res.locals.deck;
+  const data = await decksService.listCards(deck);
+  res.status(201).json({ data });
+}
+
 // Validation Middleware
 
 async function deckExists(req, res, next) {
@@ -38,4 +44,5 @@ module.exports = {
   create: asyncErrorBoundary(create),
   read: [asyncErrorBoundary(deckExists), read],
   list: asyncErrorBoundary(list),
+  listCards: [asyncErrorBoundary(deckExists), asyncErrorBoundary(listCards)],
 };
