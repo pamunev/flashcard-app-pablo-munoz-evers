@@ -1,5 +1,7 @@
 const knex = require("../db/connection");
 
+const lodash = require("lodash");
+
 const mapProperties = require("../utils/map-properties");
 
 const addCards = mapProperties({
@@ -27,9 +29,11 @@ function read(deckId) {
 function list() {
   //return { hello: "world" };
   return knex("decks as d")
-    .join("cards as c", "d.id", "c.deckId")
+    .leftJoin("cards as c", "d.id", "c.deckId")
     .select("d.*", "c.*")
-    .then(addCards);
+    .then((data) => {
+      return data.map((deckData) => addCards(deckData));
+    });
 }
 
 function listCards(deck) {

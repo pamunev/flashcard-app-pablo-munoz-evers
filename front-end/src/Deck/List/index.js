@@ -42,7 +42,7 @@ function DeckList() {
     <div>
       {allDecks.map((deck) => {
         return (
-          <div className="card">
+          <div className="card" key={deck.id}>
             <div className="card-body d-flex justify-content-between align-items-center">
               <h3 className="card-title">{deck.name}</h3>
               <div>{deck.cards.length} cards</div>

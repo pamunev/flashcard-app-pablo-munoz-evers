@@ -7,6 +7,7 @@ function mapProperties(configuration) {
         return lodash.set(accumulator, configuration[key] || key, value);
       }, {});
     }
+    console.log(`Mapping property ${key} to ${configuration[key] || key}`);
     return data;
   };
 }
