@@ -32,7 +32,24 @@ function list() {
     .leftJoin("cards as c", "d.id", "c.deckId")
     .select("d.*", "c.*")
     .then((data) => {
-      return data.map((deckData) => addCards(deckData));
+      const decks = [];
+      // Organizing the data into decks
+      data.forEach((row) => {
+        let deck = decks.find((d) => d.id === row.id);
+
+        if (!deck) {
+          deck = { ...row, cards: [] };
+          decks.push(deck);
+        }
+
+        if (row.cardId) {
+          // I'll use addCards to map card properties
+          const card = addCards(row);
+          // I'll add the mapped card to the "cards" array
+          decks.cards.push(card);
+        }
+      });
+      return decks;
     });
 }
 
