@@ -46,7 +46,7 @@ function list() {
           // I'll use addCards to map card properties
           const card = addCards(row);
           // I'll add the mapped card to the "cards" array
-          decks.cards.push(card);
+          deck.cards.push(card);
         }
       });
       return decks;
