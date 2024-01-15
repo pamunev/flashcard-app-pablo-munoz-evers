@@ -36,6 +36,10 @@ function DeckList() {
     listDecks().then(setAllDecks);
   }
 
+  if (!allDecks) {
+    return <p>Loading...</p>;
+  }
+
   console.log("potato", allDecks);
 
   return (

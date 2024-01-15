@@ -30,7 +30,7 @@ function list() {
   //return { hello: "world" };
   return knex("decks as d")
     .leftJoin("cards as c", "d.id", "c.deckId")
-    .select("d.*", "c.*")
+    .select("d.*", "c.id as cardId", "c.front", "c.back", "c.deckId")
     .then((data) => {
       const decks = [];
       // Organizing the data into decks
