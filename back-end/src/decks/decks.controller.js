@@ -10,6 +10,7 @@ async function create(req, res, next) {
 
 function read(req, res, next) {
   const data = res.locals.deck;
+  console.log("readData:", data);
   res.status(201).json({ data });
 }
 
