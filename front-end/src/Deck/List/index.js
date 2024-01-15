@@ -32,10 +32,6 @@ function DeckList() {
     }
   };
 
-  function loadDecks() {
-    listDecks().then(setAllDecks);
-  }
-
   if (!allDecks) {
     return <p>Loading...</p>;
   }
