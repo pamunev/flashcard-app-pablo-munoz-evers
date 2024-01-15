@@ -10,7 +10,10 @@ function Deck() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await readDeck(deckId);
+      const response = await readDeck(deckId);
+      console.log("readDeck API call:", response);
+      const { data } = response;
+      console.log("readDeck destructured data", data);
       setDeck(data);
     };
     fetchData();
