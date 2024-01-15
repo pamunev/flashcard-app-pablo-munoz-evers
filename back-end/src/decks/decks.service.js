@@ -20,7 +20,31 @@ function create(newDeck) {
 
 function read(deckId) {
   console.log("deck id:", deckId);
-  return knex("decks").select("*").where({ id: deckId });
+  return knex("decks as d")
+    .select("*")
+    .where({ "d.id": deckId })
+    .leftJoin("cards as c", "d.id", "c.deckId")
+    .then((returnedData) => returnedData[0])
+    .then((data) => {
+      const decks = [];
+      // Organizing the data into decks
+      data.forEach((row) => {
+        let deck = decks.find((d) => d.id === row.id);
+
+        if (!deck) {
+          deck = { ...row, cards: [] };
+          decks.push(deck);
+        }
+
+        if (row.cardId) {
+          // I'll use addCards to map card properties
+          const card = addCards(row);
+          // I'll add the mapped card to the "cards" array
+          deck.cards.push(card);
+        }
+      });
+      return decks;
+    });
 }
 
 function list() {
