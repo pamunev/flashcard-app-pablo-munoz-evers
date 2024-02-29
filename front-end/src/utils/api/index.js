@@ -2,8 +2,10 @@
  * Defines the base URL for the API.
  * The default values is overridden by the `API_BASE_URL` environment variable.
  */
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
+// process.env.REACT_APP_API_BASE_URL ||
+// Include the above in the API_BASE_URL variable before the localhost 8080.
+
+const API_BASE_URL = "http://localhost:8080";
 console.log("Current Node Env:", process.env.NODE_ENV);
 /**
  * Defines the default headers for these functions to work with `json-server`

@@ -8,13 +8,21 @@ function DeckList() {
 
   const history = useHistory();
 
+  /*When using my own API: In the useEffect below, add the following lines
+  bellow the response = await listDecks():
+  const { data } = response;
+      console.log("data from API:", data);
+  then change setAllDecks(response)
+  to setAllDecks(data). This is how it should interact properly with my 
+  API as it is. However, I'm changing it for now because of how the Thinkful 
+  API for this app is configured -- it returns data in a different format.
+  2/29/24.
+*/
   useEffect(() => {
     const fetchData = async () => {
       const response = await listDecks();
       console.log("API initial response:", response);
-      const { data } = response;
-      console.log("data from API:", data);
-      setAllDecks(data);
+      setAllDecks(response);
     };
     fetchData();
   }, []);
